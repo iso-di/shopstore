@@ -7,20 +7,22 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="iphone.png" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- Подключаем Slick Slider -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <style>
-               
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #f9f9f9;
             display: flex;
             justify-content: center;
-            align-items: flex-start; 
-            padding-top: 20px; 
-            padding-bottom: 30px
-            height: 100vh;
+            align-items: flex-start;
+            padding: 20px 10px;
+            min-height: 100vh;
             box-sizing: border-box;
         }
+        
         .card {
             background: white;
             border-radius: 30px;
@@ -30,82 +32,173 @@
             padding: 24px;
             text-align: center;
             box-sizing: border-box;
-            margin-top: 30px;
-            padding-bottom: 20px
-
+            margin: 20px 0;
         }
-        .card img {
-            max-width: 60%;
+        
+        /* Стили для слайдера */
+        .slider-container {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .slider-item {
+            padding: 0 10px;
+            outline: none;
+        }
+        
+        .slider-item img {
+            width: 100%;
             border-radius: 20px;
+            margin: 0 auto;
         }
+        
+        /* Стили для точек навигации слайдера */
+        .slick-dots {
+            bottom: -25px;
+        }
+        
+        .slick-dots li button:before {
+            font-size: 10px;
+            color: #007aff;
+        }
+        
+        .slick-dots li.slick-active button:before {
+            color: #007aff;
+        }
+        
         .title {
             font-size: 24px;
             font-weight: 600;
-            margin: 16px 0 4px;
+            margin: 24px 0 8px;
+            color: #1d1d1f;
         }
+        
         .price {
             font-size: 26px;
             font-weight: 700;
             color: #ff3b30;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
+        
         .specs {
             text-align: left;
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 10px;
         }
-         .warranty {
-      margin-top: 20px;
-      text-align: left;
-      font-size: 18px;
-      font-weight: 700;
-      color: #ff3b30;
-      padding-top: 12px;
-      border-top: 1px solid #eee;
-    }
-    .warranty span {
-      font-weight: 400;
-      color: #007aff;
+        
+        .specs p {
+            margin: 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
         }
+        
+        .specs strong {
+            color: #1d1d1f;
+        }
+         
+        .warranty {
+            margin-top: 24px;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff3b30;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+        
+        .warranty p {
+            margin: 8px 0;
+        }
+        
+        .warranty span {
+            font-weight: 400;
+            color: #007aff;
+        }
+        
         .small-text {
             font-size: 12px;
             color: #888;
-            margin-top: 12px;
-        }   
-         @media (max-width: 600px) {
-      body {
-        padding-top: 20px;
-        padding-bottom: 10px;
-      }
-      .card {
-        padding: 16px;
-      }
-      .card img {
-        max-width: 90%;
-      }
-      .title {
-        font-size: 20px;
-      }
-      .price {
-        font-size: 22px;
-      }
-      .specs {
-        font-size: 14px;
-      }
-      .warranty {
-        font-size: 16px;
-      }
-      .small-text {
-        font-size: 10px;
-      }
-    }
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        /* Адаптивные стили */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 5px;
+            }
+            
+            .card {
+                padding: 16px;
+                border-radius: 20px;
+            }
+            
+            .title {
+                font-size: 22px;
+                margin: 16px 0 6px;
+            }
+            
+            .price {
+                font-size: 22px;
+                margin-bottom: 16px;
+            }
+            
+            .specs {
+                font-size: 15px;
+            }
+            
+            .warranty {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            
+            .small-text {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .title {
+                font-size: 20px;
+            }
+            
+            .price {
+                font-size: 20px;
+            }
+            
+            .specs {
+                font-size: 14px;
+            }
+            
+            .warranty {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="card">
-    <img src="/shopstore/15PM/15pmnatural.png" alt="iPhone 15 Pro Max">
+    <div class="slider-container">
+        <div class="slider-item">
+            <img src="/shopstore/15PM/15pmnatural.png" alt="iPhone 15 Pro Max Natural Titanium">
+        </div>
+        <div class="slider-item">
+            <img src="/shopstore/15PM/15pmblack.png" alt="iPhone 15 Pro Max Black Titanium">
+        </div>
+        <div class="slider-item">
+            <img src="/shopstore/15PM/15pmblue.png" alt="iPhone 15 Pro Max Blue Titanium">
+        </div>
+        <div class="slider-item">
+            <img src="/shopstore/15PM/15pmwhite.png" alt="iPhone 15 Pro Max White Titanium">
+        </div>
+    </div>
+    
     <div class="title">iPhone 15 Pro Max</div>
     <div class="price">Від - 39 900* грн</div>
+    
     <div class="specs">
         <p><strong>Колір:</strong> Natural, Black, Blue, White Titanium</p>
         <p><strong>Памʼять:</strong> 256GB, 512GB, 1TB</p>
@@ -115,18 +208,37 @@
         <p><strong>Акумулятор:</strong> 4441 mAh</p>
         <p><strong>Стан АКБ:</strong> 86%</p>
     </div>
-   <div class="warranty">
-      <strong>Гарантія:</strong>
-      <p><span>1 міс. — Входить у вартість</span></p>
-      <p><span>6 міс. — 800 грн</span></p>
-      <p><span>1 рік — 1 200 грн</span></p>
+   
+    <div class="warranty">
+        <strong>Гарантія:</strong>
+        <p><span>1 міс. — Входить у вартість</span></p>
+        <p><span>6 міс. — 800 грн</span></p>
+        <p><span>1 рік — 1 200 грн</span></p>
     </div>
+    
     <div class="small-text">
         *ціна вказана акційна за умови оплати готівкою
     </div>
 </div>
 
+<!-- Подключаем jQuery и Slick Slider -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 <script>
+    // Инициализация слайдера
+    $(document).ready(function(){
+        $('.slider-container').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            autoplay: true,
+            autoplaySpeed: 3000
+        });
+    });
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js')
             .then(reg => console.log('SW registered', reg))
