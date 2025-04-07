@@ -27,12 +27,6 @@
       transform-origin: top left;
     }
 
-    @media (min-width: 400px) {
-      .scale-wrapper {
-        transform: scale(1.1);
-      }
-    }
-
     @media (max-width: 390px) {
       .scale-wrapper {
         transform: scale(1);
@@ -41,9 +35,9 @@
 
     .card {
       background: white;
-      border-radius: 28px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
-      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 10px;
       box-sizing: border-box;
       margin: 20px auto;
       max-width: 360px;
@@ -51,68 +45,69 @@
 
     .slider {
       width: 100%;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       margin-bottom: 8px;
     }
 
     .slider img {
-      width: 80%;  /* Уменьшаем изображение */
+      width: 70%;  /* Уменьшение изображения */
       display: block;
       margin: 0 auto;
     }
 
     .title {
-      font-size: 22px;
+      font-size: 18px;  /* Меньший шрифт */
       font-weight: 600;
       text-align: center;
-      margin-bottom: 0px;  /* Убираем отступ снизу от названия */
+      margin-bottom: 0px;
       color: #1d1d1f;
     }
 
     .price {
-      font-size: 20px;
+      font-size: 16px;  /* Меньший шрифт */
       font-weight: 700;
       color: #ff3b30;
       text-align: center;
     }
 
     .small-note {
-      font-size: 13px;
+      font-size: 12px;  /* Меньший шрифт */
       text-align: center;
       color: #888;
       margin-top: 4px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .block {
       background-color: #f9f9f9;
-      border-radius: 16px;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 14px;
     }
 
     .block-item {
       display: flex;
       align-items: center;
-      font-size: 15px;
+      font-size: 14px;
       color: #1d1d1f;
     }
 
     .block-item i {
-      width: 20px;
+      width: 18px;
       text-align: center;
-      margin-right: 10px;
+      margin-right: 8px;
       color: #007aff;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .block-label {
-      font-size: 13px;
+      font-size: 12px;
       color: #888;
       margin-top: 6px;
       display: flex;
@@ -161,6 +156,10 @@
         <div class="block-item">4441 mAh</div>
       </div>
 
+      <div class="block">
+        <div class="block-item"><i class="fas fa-battery-half"></i>Стан АКБ</div>
+        <div class="block-item">86%</div>
+      </div>
 
       <div class="block">
         <div class="block-item"><i class="fas fa-calendar-alt"></i>Рік випуску</div>
