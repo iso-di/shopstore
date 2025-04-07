@@ -2,210 +2,191 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>iPhone 15 Pro Max</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="iphone.png" />
   <meta name="theme-color" content="#ffffff" />
-
-  <!-- Slick Slider -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
   <style>
-    body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f2f2f7;
-  display: flex;
-  justify-content: center;
-  padding: 12px 8px;
-  box-sizing: border-box;
-  overflow: hidden; /* 🔒 Забороняє скролінг */
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background-color: #f2f2f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .scale-wrapper {
+      width: 390px;
+      height: 844px;
+      transform-origin: top left;
+    }
+
+    @media (min-width: 400px) {
+      .scale-wrapper {
+        transform: scale(1.1);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .scale-wrapper {
+        transform: scale(1);
+      }
+    }
 
     .card {
       background: white;
-      border-radius: 24px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.12);
-      max-width: 390px;
-      width: 100%;
-      padding: 16px;
+      border-radius: 28px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+      padding: 20px;
       box-sizing: border-box;
+      margin: 20px auto;
+      max-width: 360px;
     }
 
-    .slider-container {
+    .slider {
+      width: 100%;
+      border-radius: 24px;
       overflow: hidden;
-      border-radius: 20px;
       margin-bottom: 12px;
     }
 
-    .slider-item img {
+    .slider img {
       width: 100%;
       display: block;
-      border-radius: 20px;
     }
 
     .title {
-      text-align: center;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
-      margin: 8px 0 4px;
-    }
-
-    .price {
       text-align: center;
-      font-size: 18px;
-      font-weight: 600;
-      color: #ff3b30;
-      margin-bottom: 6px;
-    }
-
-    .small-text {
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      margin-top: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .small-text i {
-      margin-right: 6px;
-      font-size: 13px;
-    }
-
-    /* Характеристики */
-    .spec-block {
-      margin-top: 14px;
-    }
-
-    .spec-item {
-      background: #f9f9f9;
-      border-radius: 16px;
-      padding: 10px 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 6px;
-    }
-
-    .spec-item .label {
-      display: flex;
-      align-items: center;
-      color: #333;
-    }
-
-    .spec-item i {
-      color: #007aff;
-      margin-right: 10px;
-      min-width: 18px;
-      text-align: center;
-    }
-
-    .spec-item .value {
-      font-weight: 500;
+      margin-bottom: 4px;
       color: #1d1d1f;
     }
 
-    .block-caption {
-      font-size: 12px;
-      color: #999;
-      margin-left: 6px;
-      margin-top: -2px;
-      margin-bottom: 10px;
+    .price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ff3b30;
+      text-align: center;
     }
 
-    /* Slick Dots */
-    .slick-dots {
-      bottom: -18px;
+    .small-note {
+      font-size: 13px;
+      text-align: center;
+      color: #888;
+      margin-top: 4px;
+      margin-bottom: 16px;
     }
 
-    .slick-dots li button:before {
-      font-size: 10px;
+    .block {
+      background-color: #f9f9f9;
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .block-item {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      margin: 6px 0;
+      color: #1d1d1f;
+    }
+
+    .block-item i {
+      width: 20px;
+      text-align: center;
+      margin-right: 10px;
       color: #007aff;
+      font-size: 16px;
     }
 
-    .slick-dots li.slick-active button:before {
-      color: #007aff;
+    .block-label {
+      font-size: 13px;
+      color: #888;
+      margin-top: 6px;
     }
 
-    @media (max-width: 400px) {
-      .title { font-size: 18px; }
-      .price { font-size: 17px; }
-    }
   </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="slider-container">
-      <div class="slider-item">
-        <img src="/shopstore/15PM/15pmnatural.png" alt="Natural Titanium">
+  <div class="scale-wrapper">
+    <div class="card">
+      <div class="slider">
+        <img src="/shopstore/15PM/15pmnatural.png" alt="iPhone 15 Pro Max">
       </div>
-      <div class="slider-item">
-        <img src="/shopstore/15PM/15pmblack.png" alt="Black Titanium">
-      </div>
-      <div class="slider-item">
-        <img src="/shopstore/15PM/15pmblue.png" alt="Blue Titanium">
-      </div>
-      <div class="slider-item">
-        <img src="/shopstore/15PM/15pmwhite.png" alt="White Titanium">
-      </div>
-    </div>
 
-    <div class="title">iPhone 15 Pro Max</div>
-    <div class="price">Від 39 900** грн</div>
-    <div class="small-text"><i class="fas fa-info-circle"></i>*Ціна акційна за умови оплати готівкою</div>
-    <div class="small-text"><i class="fas fa-info-circle"></i>*Ціна вказана за версію на 256GB</div>
+      <div class="title">iPhone 15 Pro Max</div>
+      <div class="price">від 39 900 грн</div>
+      <div class="small-note">*ціна вказана за умови оплати готівкою</div>
 
-
-    <div class="spec-block">
-      <div class="spec-item">
-        <div class="label"><i class="fas fa-palette"></i> Natural Titanium</div>
-        <div class="value">256GB</div>
+      <!-- ХАРАКТЕРИСТИКИ -->
+      <div class="block">
+        <div class="block-item"><i class="fas fa-palette"></i>Natural, Black, Blue, White</div>
+        <div class="block-label">Кольори</div>
       </div>
-      <div class="block-caption">Колір / Памʼять</div>
 
-      <div class="spec-item">
-        <div class="label"><i class="fas fa-camera"></i> 48MP + 12MP + 12MP</div>
-        <div class="value">2023</div>
+      <div class="block">
+        <div class="block-item"><i class="fas fa-memory"></i>256GB, 512GB, 1TB</div>
+        <div class="block-label">Памʼять</div>
       </div>
-      <div class="block-caption">Камера / Рік випуску</div>
 
-      <div class="spec-item">
-        <div class="label"><i class="fas fa-microchip"></i> A17 Pro</div>
-        <div class="value">4441 mAh</div>
+      <div class="block">
+        <div class="block-item"><i class="fas fa-camera"></i>48MP + 12MP + 12MP</div>
+        <div class="block-label">Камери</div>
       </div>
-      <div class="block-caption">Процесор / Акумулятор</div>
 
-      <div class="spec-item">
-        <div class="label"><i class="fas fa-battery-half"></i> Стан АКБ</div>
-        <div class="value">86%</div>
+      <div class="block">
+        <div class="block-item"><i class="fas fa-microchip"></i>A17 Pro</div>
+        <div class="block-label">Процесор</div>
       </div>
-      <div class="block-caption">Акумулятор</div>
+
+      <div class="block">
+        <div class="block-item"><i class="fas fa-battery-three-quarters"></i>4441 mAh</div>
+        <div class="block-label">Акумулятор</div>
+      </div>
+
+      <div class="block">
+        <div class="block-item"><i class="fas fa-battery-half"></i>Стан: 86%</div>
+        <div class="block-label">Стан АКБ</div>
+      </div>
+
+      <div class="block">
+        <div class="block-item"><i class="fas fa-calendar-alt"></i>2023</div>
+        <div class="block-label">Рік випуску</div>
+      </div>
+
+      <!-- ГАРАНТІЯ -->
+      <div class="block">
+        <div class="block-item"><i class="fas fa-check-circle"></i>1 місяць — у ціні</div>
+        <div class="block-item"><i class="fas fa-plus-circle"></i>6 місяців — 800 грн</div>
+        <div class="block-item"><i class="fas fa-star"></i>12 місяців — 1 200 грн</div>
+        <div class="block-label">Гарантія</div>
+      </div>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
   <script>
+    // Инициализация слайдера
     $(document).ready(function(){
-      $('.slider-container').slick({
+      $('.slider').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
         autoplay: true,
-        autoplaySpeed: 3500
+        autoplaySpeed: 3000
       });
     });
 
