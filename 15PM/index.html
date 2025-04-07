@@ -15,7 +15,8 @@
             display: flex;
             justify-content: center;
             align-items: flex-start; 
-            padding-top: 40px; 
+            padding-top: 20px; 
+            padding-bottom: 20px
             height: 100vh;
             box-sizing: border-box;
         }
@@ -58,6 +59,7 @@
             color: #ff3b30;
             padding-top: 12px;
             border-top: 1px solid #eee;
+            justify-content: space-between; 
         }
         .warranty span {
             font-weight: 400;
@@ -72,7 +74,8 @@
    /* Адаптація для мобільних пристроїв */
     @media (max-width: 600px) {
       body {
-        padding: 10px;
+            padding-top: 10px;
+          padding-bottom: 10px
       }
       .card {
         padding: 16px;
@@ -113,10 +116,13 @@
         <p><strong>Акумулятор:</strong> 4441 mAh</p>
         <p><strong>Стан АКБ:</strong> 86%</p>
     </div>
+   <div class="warranty">
+      <div><strong>Гарантія:</strong> 6 міс.</div>
+      <div class="price">800 грн</div>
+    </div>
     <div class="warranty">
-        <strong>Гарантія:</strong>
-        <p><span>6 міс. — 800 грн</span></p>
-        <p><span>1 рік — 1 200 грн</span></p>
+      <div><strong>Гарантія:</strong> 1 рік</div>
+      <div class="price">1 200 грн</div>
     </div>
     <div class="small-text">
         *ціна вказана акційна за умови оплати готівкою
