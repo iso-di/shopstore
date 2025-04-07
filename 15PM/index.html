@@ -47,11 +47,11 @@
       width: 100%;
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
     .slider img {
-      width: 70%;  /* Уменьшение изображения */
+      width: 60%;  /* Уменьшение изображения */
       display: block;
       margin: 0 auto;
     }
@@ -60,7 +60,7 @@
       font-size: 18px;  /* Меньший шрифт */
       font-weight: 600;
       text-align: center;
-      margin-bottom: 0px;
+      margin: 5px 0;
       color: #1d1d1f;
     }
 
@@ -114,6 +114,36 @@
       justify-content: flex-end;
       font-weight: bold;
     }
+
+    .guarantee-block {
+      margin-top: 10px;
+      background-color: #f1f1f1;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .guarantee-item i {
+      width: 18px;
+      text-align: center;
+      margin-right: 8px;
+      color: #007aff;
+    }
+
+    .guarantee-item .price {
+      font-weight: 600;
+      color: #ff3b30;
+    }
+
   </style>
 </head>
 <body>
@@ -127,8 +157,10 @@
       </div>
 
       <div class="title">iPhone 15 Pro Max</div>
-      <div class="price">від 39 900 грн</div>
+      <div class="price">від 39 900** грн</div>
       <div class="small-note">*ціна вказана за умови оплати готівкою</div>
+      <div class="small-note">**ціна вказана  оплати готівкою</div>
+
 
       <!-- ХАРАКТЕРИСТИКИ -->
       <div class="block">
@@ -157,26 +189,21 @@
       </div>
 
       <div class="block">
-        <div class="block-item"><i class="fas fa-battery-half"></i>Стан АКБ</div>
-        <div class="block-item">86%</div>
-      </div>
-
-      <div class="block">
         <div class="block-item"><i class="fas fa-calendar-alt"></i>Рік випуску</div>
         <div class="block-item">2023</div>
       </div>
 
       <!-- ГАРАНТІЯ -->
-      <div class="block">
-        <div class="block-item"><i class="fas fa-check-circle"></i>1 місяць — у ціні</div>
-      </div>
-
-      <div class="block">
-        <div class="block-item"><i class="fas fa-plus-circle"></i>6 місяців — 800 грн</div>
-      </div>
-
-      <div class="block">
-        <div class="block-item"><i class="fas fa-star"></i>12 місяців — 1 200 грн</div>
+      <div class="guarantee-block">
+        <div class="guarantee-item">
+          <i class="fas fa-check-circle"></i>1 місяць — у ціні
+        </div>
+        <div class="guarantee-item">
+          <i class="fas fa-plus-circle"></i>6 місяців — 800 грн
+        </div>
+        <div class="guarantee-item">
+          <i class="fas fa-star"></i>12 місяців — 1 200 грн
+        </div>
       </div>
 
       <div class="block-label">Гарантія</div>
