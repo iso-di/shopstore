@@ -1,234 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iPhone 15 Pro Max</title>
-    <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="iphone.png" />
-    <meta name="theme-color" content="#ffffff" />
-     <!-- Слайдер та іконки -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone 15 Pro Max</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="iphone.png" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Slick Slider -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-   body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f2f2f7;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  box-sizing: border-box;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f2f2f7;
+      display: flex;
+      justify-content: center;
+      padding: 12px 8px;
+      box-sizing: border-box;
+    }
 
-.card {
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  max-width: 390px;
-  width: 100%;
-  margin: 12px;
-  padding: 16px;
-  box-sizing: border-box;
-}
+    .card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.12);
+      max-width: 390px;
+      width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
 
-.slider-container {
-  margin: 0 auto;
-  max-width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-}
+    .slider-container {
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
 
-.slider-item img {
-  width: 100%;
-  border-radius: 20px;
-}
+    .slider-item img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
 
-.title, .price, .small-text {
-  text-align: center;
-}
+    .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 8px 0 4px;
+    }
 
-.title {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 10px 0 4px;
-  color: #1d1d1f;
-}
+    .price {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ff3b30;
+      margin-bottom: 6px;
+    }
 
-.price {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ff3b30;
-  margin-bottom: 6px;
-}
+    .small-text {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.specs {
-  font-size: 15px;
-  line-height: 1.4;
-  margin-top: 10px;
-}
+    .small-text i {
+      margin-right: 6px;
+      font-size: 13px;
+    }
 
-.specs p {
-  display: flex;
-  align-items: center;
-  margin: 6px 0;
-}
+    /* Характеристики */
+    .spec-block {
+      margin-top: 14px;
+    }
 
-.specs i {
-  margin-right: 10px;
-  font-size: 16px;
-  color: #007aff;
-  min-width: 18px;
-  text-align: center;
-}
+    .spec-item {
+      background: #f9f9f9;
+      border-radius: 16px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 6px;
+    }
 
-/* СТИЛЬ ДЛЯ ГАРАНТІЇ */
-.warranty {
-  margin-top: 16px;
-}
+    .spec-item .label {
+      display: flex;
+      align-items: center;
+      color: #333;
+    }
 
-.warranty-title {
-  font-weight: 600;
-  font-size: 15px;
-  color: #1d1d1f;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
+    .spec-item i {
+      color: #007aff;
+      margin-right: 10px;
+      min-width: 18px;
+      text-align: center;
+    }
 
-.warranty-title i {
-  color: #ff3b30;
-  margin-right: 8px;
-}
+    .spec-item .value {
+      font-weight: 500;
+      color: #1d1d1f;
+    }
 
-.warranty-options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+    .block-caption {
+      font-size: 12px;
+      color: #999;
+      margin-left: 6px;
+      margin-top: -2px;
+      margin-bottom: 10px;
+    }
 
-.warranty-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f9f9f9;
-  padding: 10px 12px;
-  border-radius: 14px;
-  font-size: 14px;
-  color: #333;
-}
+    /* Slick Dots */
+    .slick-dots {
+      bottom: -18px;
+    }
 
-.warranty-option i {
-  margin-right: 8px;
-  color: #007aff;
-}
+    .slick-dots li button:before {
+      font-size: 10px;
+      color: #007aff;
+    }
 
-.warranty-option .label {
-  display: flex;
-  align-items: center;
-}
+    .slick-dots li.slick-active button:before {
+      color: #007aff;
+    }
 
-.warranty-option .price {
-  font-weight: 500;
-  color: #007aff;
-}
-
-.small-text {
-  font-size: 12px;
-  color: #666;
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.small-text i {
-  margin-right: 6px;
-  font-size: 13px;
-}
+    @media (max-width: 400px) {
+      .title { font-size: 18px; }
+      .price { font-size: 17px; }
+    }
   </style>
 </head>
+
 <body>
-<div class="card">
+  <div class="card">
     <div class="slider-container">
-        <div class="slider-item">
-            <img src="/shopstore/15PM/15pmnatural.png" alt="iPhone 15 Pro Max Natural Titanium">
-        </div>
-        <div class="slider-item">
-            <img src="/shopstore/15PM/15pmblack.png" alt="iPhone 15 Pro Max Black Titanium">
-        </div>
-        <div class="slider-item">
-            <img src="/shopstore/15PM/15pmblue.png" alt="iPhone 15 Pro Max Blue Titanium">
-        </div>
-        <div class="slider-item">
-            <img src="/shopstore/15PM/15pmwhite.png" alt="iPhone 15 Pro Max White Titanium">
-        </div>
+      <div class="slider-item">
+        <img src="/shopstore/15PM/15pmnatural.png" alt="Natural Titanium">
+      </div>
+      <div class="slider-item">
+        <img src="/shopstore/15PM/15pmblack.png" alt="Black Titanium">
+      </div>
+      <div class="slider-item">
+        <img src="/shopstore/15PM/15pmblue.png" alt="Blue Titanium">
+      </div>
+      <div class="slider-item">
+        <img src="/shopstore/15PM/15pmwhite.png" alt="White Titanium">
+      </div>
     </div>
 
     <div class="title">iPhone 15 Pro Max</div>
-<div class="price">Від - 39 900* грн</div>
-<div class="small-text">
-    <i class="fas fa-info-circle"></i>ціна вказана акційна за умови оплати готівкою
-</div>
-   <table class="specs-table">
-  <tr><td><i class="fas fa-palette"></i></td><td>Natural, Black, Blue, White</td></tr>
-  <tr><td><i class="fas fa-memory"></i></td><td>256GB / 512GB / 1TB</td></tr>
-  <tr><td><i class="fas fa-camera"></i></td><td>48MP + 12MP + 12MP</td></tr>
-  <tr><td><i class="fas fa-calendar-alt"></i></td><td>2023</td></tr>
-  <tr><td><i class="fas fa-microchip"></i></td><td>A17 Pro</td></tr>
-</table>
+    <div class="price">Від 39 900 грн</div>
+    <div class="small-text"><i class="fas fa-info-circle"></i>Ціна акційна за умови оплати готівкою</div>
 
-   <div class="warranty">
-  <div class="warranty-title">
-    <i class="fas fa-shield-alt"></i> Гарантія
+    <div class="spec-block">
+      <div class="spec-item">
+        <div class="label"><i class="fas fa-palette"></i> Natural Titanium</div>
+        <div class="value">256GB</div>
+      </div>
+      <div class="block-caption">Колір / Памʼять</div>
+
+      <div class="spec-item">
+        <div class="label"><i class="fas fa-camera"></i> 48MP + 12MP + 12MP</div>
+        <div class="value">2023</div>
+      </div>
+      <div class="block-caption">Камера / Рік випуску</div>
+
+      <div class="spec-item">
+        <div class="label"><i class="fas fa-microchip"></i> A17 Pro</div>
+        <div class="value">4441 mAh</div>
+      </div>
+      <div class="block-caption">Процесор / Акумулятор</div>
+
+      <div class="spec-item">
+        <div class="label"><i class="fas fa-battery-half"></i> Стан АКБ</div>
+        <div class="value">86%</div>
+      </div>
+      <div class="block-caption">Акумулятор</div>
+    </div>
   </div>
-  <div class="warranty-options">
-    <div class="warranty-option">
-      <div class="label"><i class="fas fa-check-circle"></i>1 місяць</div>
-      <div class="price">Безкоштовно</div>
-    </div>
-    <div class="warranty-option">
-      <div class="label"><i class="fas fa-plus-circle"></i>6 місяців</div>
-      <div class="price">800 грн</div>
-    </div>
-    <div class="warranty-option">
-      <div class="label"><i class="fas fa-star"></i>1 рік</div>
-      <div class="price">1 200 грн</div>
-    </div>
-  </div>
-</div>
 
-</div>
-
-<!-- Подключаем jQuery и Slick Slider -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<!-- Подключаем Font Awesome для иконок -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-
-<script>
-    // Инициализация слайдера
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
     $(document).ready(function(){
-        $('.slider-container').slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            adaptiveHeight: true,
-            autoplay: true,
-            autoplaySpeed: 3000
-        });
+      $('.slider-container').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 3500
+      });
     });
 
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('SW registered', reg))
-            .catch(err => console.error('SW registration failed', err));
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('SW registered', reg))
+        .catch(err => console.error('SW registration failed', err));
     }
-</script>
+  </script>
 </body>
 </html>
