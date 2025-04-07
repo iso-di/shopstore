@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iPhone 15 Pro Max</title>
+    <title>iPhone 13 Pro Max</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="iphone.png" />
     <meta name="theme-color" content="#ffffff" />
@@ -15,14 +15,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 16px;
             height: 100vh;
+            box-sizing: border-box;
         }
         .card {
             background: white;
             border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 400px;
+            width: 100%;
             padding: 24px;
             text-align: center;
+            box-sizing: border-box;
         }
         .card img {
             max-width: 100%;
@@ -34,9 +39,9 @@
             margin: 16px 0 4px;
         }
         .price {
-            font-size: 22px;
-            font-weight: 500;
-            color: #007aff;
+            font-size: 26px;
+            font-weight: 700;
+            color: #ff3b30;
             margin-bottom: 16px;
         }
         .specs {
@@ -44,23 +49,48 @@
             font-size: 16px;
             line-height: 1.5;
         }
+        .warranty {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff3b30;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+        .warranty span {
+            font-weight: 400;
+            color: #007aff;
+        }
+        .small-text {
+            font-size: 12px;
+            color: #888;
+            margin-top: 12px;
+        }
     </style>
 </head>
 <body>
 <div class="card">
-    <img src="/shopstore/15PM/15pmnatural.png" alt="iPhone 13 Pro Max">
+    <img src="iphone13promax.png" alt="iPhone 13 Pro Max">
     <div class="title">iPhone 15 Pro Max</div>
-    <div class="price">Від - 41100* грн</div>
-    <p> *Ціна вказана акційна за готівку!</p>
+    <div class="price">18 000* грн</div>
     <div class="specs">
-        <p><strong>Колір:</strong> Natural Titanium</p>
-        <p><strong>Пам'ять:</strong> 256GB</p>
-        <p><strong>Дисплей:</strong> 6.7" Super Retina XDR</p>
-        <p><strong>Камера:</strong> 48MP + 12MP + 12MP</p>
-        <p><strong>Процессор:</strong> A17 Pro</p>
-        <p><strong>Аккумулятор:</strong> 4441 mAh</p>
-        <p><strong>Стан АКБ:</strong> 86%</p>
-
+        <p><strong>Рік випуску:</strong> 2021</p>
+        <p><strong>Колір:</strong> Graphite</p>
+        <p><strong>Памʼять:</strong> 128GB</p>
+        <p><strong>Дисплей:</strong> 6.7\" Super Retina XDR</p>
+        <p><strong>Камера:</strong> 12MP + 12MP + 12MP</p>
+        <p><strong>Процесор:</strong> A15 Bionic</p>
+        <p><strong>Батарея:</strong> 4352 mAh</p>
+        <p><strong>Сети:</strong> 5G, Face ID, MagSafe</p>
+    </div>
+    <div class="warranty">
+        <strong>Гарантія:</strong>
+        <p><span>6 міс. — 800 грн</span></p>
+        <p><span>1 рік — 1 200 грн</span></p>
+    </div>
+    <div class="small-text">
+        *ціна вказана акційна за умови оплати готівкою
     </div>
 </div>
 
