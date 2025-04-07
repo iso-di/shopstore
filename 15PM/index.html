@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPhone 13 Pro Max</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="iphone.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            padding: 24px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 20px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 16px 0 4px;
+        }
+        .price {
+            font-size: 22px;
+            font-weight: 500;
+            color: #007aff;
+            margin-bottom: 16px;
+        }
+        .specs {
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <img src="/img/iphone13promaxgold.png" alt="iPhone 13 Pro Max">
+    <div class="title">iPhone 13 Pro Max</div>
+    <div class="price">18 000 грн</div>
+    <div class="specs">
+        <p><strong>Цвет:</strong> Graphite, Silver, Sierra Blue, Gold</p>
+        <p><strong>Память:</strong> 128GB, 256GB, 512GB, 1TB</p>
+        <p><strong>Дисплей:</strong> 6.7" Super Retina XDR</p>
+        <p><strong>Камера:</strong> 12MP + 12MP + 12MP</p>
+        <p><strong>Процессор:</strong> A15 Bionic</p>
+        <p><strong>Батарея:</strong> 4352 mAh</p>
+    </div>
+</div>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('SW registered', reg))
+            .catch(err => console.error('SW registration failed', err));
+    }
+</script>
+</body>
+</html>

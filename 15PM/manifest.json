@@ -1,0 +1,15 @@
+{
+  "name": "iPhone 13 Pro Max",
+  "short_name": "iPhone13",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "iphone.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
