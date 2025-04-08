@@ -1,127 +1,491 @@
-<html>
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-<title>index.html</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #d5b778;}
-.s1 { color: #bcbec4;}
-.s2 { color: #bababa;}
-.s3 { color: #6aab73;}
-.s4 { color: #2aacb8;}
-.s5 { color: #56a8f5;}
-.s6 { color: #cf8e6d;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iPhone 15 Pro Max | Премиум опыт</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <style>
+        :root {
+            --primary: #0071e3;
+            --secondary: #1d1d1f;
+            --accent: #ff453a;
+            --bg: #000;
+            --card-bg: #121212;
+            --text: #f5f5f7;
+            --text-secondary: #86868b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            height: 100vh;
+            perspective: 1000px;
+        }
+        
+        .parallax-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            z-index: -1;
+        }
+        
+        .phone-glow {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 113, 227, 0.15) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: pulse 8s infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.3; }
+            100% { transform: scale(1.1); opacity: 0.6; }
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .phone-display {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 30px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            padding-top: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="640" viewBox="0 0 320 640"><rect x="10" y="10" width="300" height="620" rx="40" fill="none" stroke="%23333" stroke-width="2"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+        
+        .slider-container {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slider {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            width: 100%;
+            max-width: 400px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-info:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        
+        .product-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .price-tag {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .price::after {
+            content: "**";
+            position: absolute;
+            top: -10px;
+            right: -15px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .price-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .spec-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        
+        .spec-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .spec-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        
+        .spec-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .warranty-section {
+            background: rgba(0, 113, 227, 0.1);
+            border-radius: 16px;
+            padding: 18px;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 113, 227, 0.2);
+        }
+        
+        .warranty-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .warranty-title i {
+            margin-right: 10px;
+        }
+        
+        .warranty-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .warranty-item:last-child {
+            border-bottom: none;
+        }
+        
+        .warranty-period {
+            display: flex;
+            align-items: center;
+        }
+        
+        .warranty-period i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .warranty-price {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .action-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4);
+        }
+        
+        .action-button.secondary {
+            background: var(--secondary);
+        }
+        
+        /* Анимации */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .phone-display {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Эффект параллакса */
+        @media (min-width: 768px) {
+            .phone-display {
+                transform: rotateY(15deg);
+            }
+            
+            .product-info {
+                transform: rotateY(-5deg);
+            }
+        }
+    </style>
 </head>
-<body bgcolor="#1e1f22">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-index.html</font>
-</center></td></tr></table>
-<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
-<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
-<span class="s0">&lt;head&gt;</span>
-    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot; </span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot; </span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;title&gt;</span><span class="s1">iPhone 13 Pro Max</span><span class="s0">&lt;/title&gt;</span>
-    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;manifest&quot; </span><span class="s2">href</span><span class="s3">=&quot;manifest.json&quot; </span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;apple-touch-icon&quot; </span><span class="s2">href</span><span class="s3">=&quot;iphone.png&quot; </span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;theme-color&quot; </span><span class="s2">content</span><span class="s3">=&quot;#ffffff&quot; </span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;style&gt;</span>
-        <span class="s0">body </span><span class="s1">{</span>
-            <span class="s2">margin</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
-            <span class="s2">font-family</span><span class="s1">: </span><span class="s3">-apple-system</span><span class="s1">, </span><span class="s0">BlinkMacSystemFont</span><span class="s1">, </span><span class="s3">'Segoe UI'</span><span class="s1">, </span><span class="s0">Roboto</span><span class="s1">, </span><span class="s0">Helvetica</span><span class="s1">, </span><span class="s0">Arial</span><span class="s1">, </span><span class="s3">sans-serif</span><span class="s1">;</span>
-            <span class="s2">background-color</span><span class="s1">: </span><span class="s5">#f9f9f9</span><span class="s1">;</span>
-            <span class="s2">display</span><span class="s1">: </span><span class="s3">flex</span><span class="s1">;</span>
-            <span class="s2">justify-content</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
-            <span class="s2">align-items</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
-            <span class="s2">padding</span><span class="s1">: </span><span class="s4">16</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">height</span><span class="s1">: </span><span class="s4">100</span><span class="s3">vh</span><span class="s1">;</span>
-            <span class="s2">box-sizing</span><span class="s1">: </span><span class="s3">border-box</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">card </span><span class="s1">{</span>
-            <span class="s2">background</span><span class="s1">: </span><span class="s3">white</span><span class="s1">;</span>
-            <span class="s2">border-radius</span><span class="s1">: </span><span class="s4">30</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 10</span><span class="s3">px </span><span class="s4">30</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.1</span><span class="s1">);</span>
-            <span class="s2">max-width</span><span class="s1">: </span><span class="s4">400</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">width</span><span class="s1">: </span><span class="s4">100</span><span class="s1">%;</span>
-            <span class="s2">padding</span><span class="s1">: </span><span class="s4">24</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">text-align</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
-            <span class="s2">box-sizing</span><span class="s1">: </span><span class="s3">border-box</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">card img </span><span class="s1">{</span>
-            <span class="s2">max-width</span><span class="s1">: </span><span class="s4">100</span><span class="s1">%;</span>
-            <span class="s2">border-radius</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">title </span><span class="s1">{</span>
-            <span class="s2">font-size</span><span class="s1">: </span><span class="s4">24</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">font-weight</span><span class="s1">: </span><span class="s4">600</span><span class="s1">;</span>
-            <span class="s2">margin</span><span class="s1">: </span><span class="s4">16</span><span class="s3">px </span><span class="s4">0 4</span><span class="s3">px</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">price </span><span class="s1">{</span>
-            <span class="s2">font-size</span><span class="s1">: </span><span class="s4">26</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">font-weight</span><span class="s1">: </span><span class="s4">700</span><span class="s1">;</span>
-            <span class="s2">color</span><span class="s1">: </span><span class="s5">#ff3b30</span><span class="s1">;</span>
-            <span class="s2">margin-bottom</span><span class="s1">: </span><span class="s4">16</span><span class="s3">px</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">specs </span><span class="s1">{</span>
-            <span class="s2">text-align</span><span class="s1">: </span><span class="s3">left</span><span class="s1">;</span>
-            <span class="s2">font-size</span><span class="s1">: </span><span class="s4">16</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">line-height</span><span class="s1">: </span><span class="s4">1.5</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">warranty </span><span class="s1">{</span>
-            <span class="s2">margin-top</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">text-align</span><span class="s1">: </span><span class="s3">left</span><span class="s1">;</span>
-            <span class="s2">font-size</span><span class="s1">: </span><span class="s4">18</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">font-weight</span><span class="s1">: </span><span class="s4">700</span><span class="s1">;</span>
-            <span class="s2">color</span><span class="s1">: </span><span class="s5">#ff3b30</span><span class="s1">;</span>
-            <span class="s2">padding-top</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">border-top</span><span class="s1">: </span><span class="s4">1</span><span class="s3">px solid </span><span class="s5">#eee</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">warranty span </span><span class="s1">{</span>
-            <span class="s2">font-weight</span><span class="s1">: </span><span class="s4">400</span><span class="s1">;</span>
-            <span class="s2">color</span><span class="s1">: </span><span class="s5">#007aff</span><span class="s1">;</span>
-        <span class="s1">}</span>
-        <span class="s1">.</span><span class="s0">small-text </span><span class="s1">{</span>
-            <span class="s2">font-size</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">;</span>
-            <span class="s2">color</span><span class="s1">: </span><span class="s5">#888</span><span class="s1">;</span>
-            <span class="s2">margin-top</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">;</span>
-        <span class="s1">}</span>
-    <span class="s0">&lt;/style&gt;</span>
-<span class="s0">&lt;/head&gt;</span>
-<span class="s0">&lt;body&gt;</span>
-<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
-    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;iphone13promax.png&quot; </span><span class="s2">alt</span><span class="s3">=&quot;iPhone 13 Pro Max&quot;</span><span class="s0">&gt;</span>
-    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">iPhone 13 Pro Max</span><span class="s0">&lt;/div&gt;</span>
-    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;price&quot;</span><span class="s0">&gt;</span><span class="s1">18 000* грн</span><span class="s0">&lt;/div&gt;</span>
-    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;specs&quot;</span><span class="s0">&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Рік випуску:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">2021</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Колір:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">Graphite</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Памʼять:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">128GB</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Дисплей:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">6.7\&quot; Super Retina XDR</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Камера:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">12MP + 12MP + 12MP</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Процесор:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">A15 Bionic</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Батарея:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">4352 mAh</span><span class="s0">&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;strong&gt;</span><span class="s1">Сети:</span><span class="s0">&lt;/strong&gt; </span><span class="s1">5G, Face ID, MagSafe</span><span class="s0">&lt;/p&gt;</span>
-    <span class="s0">&lt;/div&gt;</span>
-    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;warranty&quot;</span><span class="s0">&gt;</span>
-        <span class="s0">&lt;strong&gt;</span><span class="s1">Гарантія:</span><span class="s0">&lt;/strong&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;span&gt;</span><span class="s1">6 міс. — 800 грн</span><span class="s0">&lt;/span&gt;&lt;/p&gt;</span>
-        <span class="s0">&lt;p&gt;&lt;span&gt;</span><span class="s1">1 рік — 1 200 грн</span><span class="s0">&lt;/span&gt;&lt;/p&gt;</span>
-    <span class="s0">&lt;/div&gt;</span>
-    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;small-text&quot;</span><span class="s0">&gt;</span>
-        <span class="s1">*ціна вказана акційна за умови оплати готівкою</span>
-    <span class="s0">&lt;/div&gt;</span>
-<span class="s0">&lt;/div&gt;</span>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-bg"></div>
+        <div class="phone-glow"></div>
+        
+        <div class="container">
+            <div class="phone-display">
+                <div class="phone-frame">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div><img src="/shopstore/15PM/15pmn.png" alt="iPhone 15 Pro Max Natural Titanium"></div>
+                            <div><img src="/shopstore/15PM/15pmbl.png" alt="iPhone 15 Pro Max Black Titanium"></div>
+                            <div><img src="/shopstore/15PM/15pmb.png" alt="iPhone 15 Pro Max Blue Titanium"></div>
+                            <div><img src="/shopstore/15PM/15pmw.png" alt="iPhone 15 Pro Max White Titanium"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h1 class="product-title">iPhone 15 Pro Max</h1>
+                <p class="product-subtitle">Титановий дизайн. Чип A17 Pro. 48 Мп камера.</p>
+                
+                <div class="price-tag">
+                    <div class="price">від 39 900</div>
+                </div>
+                <p class="price-note">*ціна вказана за умови оплати готівкою<br>**ціна вказана за версію 256GB</p>
+                
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <i class="fas fa-palette spec-icon"></i>
+                        <span class="spec-name">Кольори</span>
+                        <span class="spec-value">4 варіанти</span>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-memory spec-icon"></i>
+                        <span class="spec-name">Памʼять</span>
+                        <span class="spec-value">256GB-1TB</span>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-camera spec-icon"></i>
+                        <span class="spec-name">Камера</span>
+                        <span class="spec-value">48MP Pro</span>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-microchip spec-icon"></i>
+                        <span class="spec-name">Чип</span>
+                        <span class="spec-value">A17 Pro</span>
+                    </div>
+                </div>
+                
+                <div class="warranty-section">
+                    <div class="warranty-title">
+                        <i class="fas fa-shield-alt"></i>Гарантія
+                    </div>
+                    <div class="warranty-item">
+                        <div class="warranty-period">
+                            <i class="fas fa-check-circle"></i>1 місяць
+                        </div>
+                        <div class="warranty-price">Включено</div>
+                    </div>
+                    <div class="warranty-item">
+                        <div class="warranty-period">
+                            <i class="fas fa-plus-circle"></i>6 місяців
+                        </div>
+                        <div class="warranty-price">800 грн</div>
+                    </div>
+                    <div class="warranty-item">
+                        <div class="warranty-period">
+                            <i class="fas fa-star"></i>12 місяців
+                        </div>
+                        <div class="warranty-price">1 200 грн</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-buttons">
+            <button class="action-button secondary" aria-label="Додати в обране">
+                <i class="far fa-heart"></i>
+            </button>
+            <button class="action-button" aria-label="Купити">
+                <i class="fas fa-shopping-bag"></i>
+            </button>
+        </div>
+    </div>
 
-<span class="s0">&lt;script&gt;</span>
-    <span class="s6">if </span><span class="s1">(</span><span class="s3">'serviceWorker' </span><span class="s6">in </span><span class="s1">navigator) {</span>
-        <span class="s1">navigator.serviceWorker.register(</span><span class="s3">'sw.js'</span><span class="s1">)</span>
-            <span class="s1">.then(reg =&gt; console.log(</span><span class="s3">'SW registered'</span><span class="s1">, reg))</span>
-            <span class="s1">.catch(err =&gt; console.error(</span><span class="s3">'SW registration failed'</span><span class="s1">, err));</span>
-    <span class="s1">}</span>
-<span class="s0">&lt;/script&gt;</span>
-<span class="s0">&lt;/body&gt;</span>
-<span class="s0">&lt;/html&gt;</span></pre>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Инициализация слайдера
+            $('.slider').slick({
+                dots: false,
+                arrows: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                pauseOnHover: false
+            });
+            
+            // Параллакс эффект
+            document.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                document.querySelector('.phone-display').style.transform = `
+                    rotateY(${(x - 0.5) * 15}deg)
+                    rotateX(${(0.5 - y) * 10}deg)
+                    translateY(${(y - 0.5) * 20}px)
+                `;
+                
+                document.querySelector('.product-info').style.transform = `
+                    rotateY(${(0.5 - x) * 5}deg)
+                    rotateX(${(y - 0.5) * 5}deg)
+                    translateY(${(0.5 - y) * 10}px)
+                `;
+                
+                document.querySelector('.phone-glow').style.transform = `
+                    translate(${(x - 0.5) * 100}px, ${(y - 0.5) * 100}px)
+                `;
+            });
+            
+            // Анимация кнопок
+            document.querySelectorAll('.action-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    // Эффект пульсации
+                    const pulse = document.createElement('div');
+                    pulse.style.position = 'absolute';
+                    pulse.style.width = '100%';
+                    pulse.style.height = '100%';
+                    pulse.style.background = 'rgba(255, 255, 255, 0.3)';
+                    pulse.style.borderRadius = '50%';
+                    pulse.style.top = '0';
+                    pulse.style.left = '0';
+                    pulse.style.transform = 'scale(0)';
+                    pulse.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                    
+                    this.appendChild(pulse);
+                    
+                    setTimeout(() => {
+                        pulse.style.transform = 'scale(1.5)';
+                        pulse.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        pulse.remove();
+                    }, 600);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
